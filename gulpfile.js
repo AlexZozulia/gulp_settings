@@ -50,11 +50,9 @@ function scripts() {
         //Обьединение файлов в один
         .pipe(concat('script.js'))
     //Минификация JS
-        .pipe(uglify({
-            toplevel: true
-        }))
+        .pipe(uglify())
         //Выходная папка для скриптов
-        .pipe(gulp.dest('./build/js'))
+        .pipe(gulp.dest('./build/js/'))
         .pipe(browserSync.stream());
 }
 
@@ -88,7 +86,7 @@ gulp.task('del', clean);
 gulp.task('watch', watch);
 //Таск для удаления файлов в папке build и запуск styles и scripts
 gulp.task('build', gulp.series(clean, gulp.parallel(styles,scripts)));
-//Таск запускает таск build и wa
+//Таск запускает таск build и watch
 gulp.task('dev', gulp.series('build','watch'))
 
 
