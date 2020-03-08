@@ -1,3 +1,5 @@
-function multiple(first, second) {
-    return first * second;
+function test(a){
+    return a+a;
 }
+
+test(2134)
